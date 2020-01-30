@@ -1,0 +1,21 @@
+
+  const onShowSizeChange = (current, size) => {
+    console.log("onShowSizeChange", current, size);
+    itemTypeContext.getItemType(current, size, searchObject);
+  };
+  const onChange = (page, pageSize) => {
+    //page, pageSize
+    console.log("onChange", page, pageSize);
+    itemTypeContext.getItemType(page, pageSize, searchObject);
+  };
+
+  <Pagination
+            showSizeChanger={true}
+            showQuickJumper={true}
+            total={itemTypeContext.itemTypes.paging.totalItems}
+            current={itemTypeContext.itemTypes.paging.pageNumber}
+            pageSize={itemTypeContext.itemTypes.paging.pageSize}
+            defaultCurrent={1}
+            pageSizeOptions={["5", "10", "20", "30", "50", "100"]}
+            onShowSizeChange={onShowSizeChange}
+            onChange={onChange}
